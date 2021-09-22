@@ -3,7 +3,7 @@
             <h2>User info</h2>
 
           <% if current_user %>
-            <%= attachment_image_tag current_user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100"  %>
+            <%= attachment_image_tag user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "100x100"  %>
             <table class="table">
               <tbody>
                 <tr></tr>

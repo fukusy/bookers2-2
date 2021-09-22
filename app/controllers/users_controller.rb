@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @book = Book.new
-    @user = current_user
+    @user = User.find(params[:id])
     @books = @user.books.page(params[:page]).reverse_order
 
   end
@@ -17,6 +17,11 @@ class UsersController < ApplicationController
   def edit
     @user_image = User.new
     @user = User.find(params[:id])
+    if @user == current_user
+      render "edit"
+    else
+      redirect_to user_path(@user)
+    end
   end
 
   def update
