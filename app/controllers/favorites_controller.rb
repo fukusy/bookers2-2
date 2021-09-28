@@ -15,7 +15,6 @@ class FavoritesController < ApplicationController
     favorite.destroy
     # 同じページをリダイレクトする
     redirect_to request.referer
-
   end
 
 end
