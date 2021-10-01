@@ -22,6 +22,19 @@ class User < ApplicationRecord
   has_many :followed, class_name: "Relationship", foreign_key: "followed_id",dependent: :destroy
   # follower_userという変数にfollowedを通じて、相手のfollowerを確認して取得
   has_many :follower_user, through: :followed, source: :follower
+  
+  def follow(user_id)
+    relationships.create(followed_id: user_id)
+  end
+  
+  def unfollow(user_id)
+    relationships.find_by(followed_id: user_id).destroy
+  end
+  
+  def following?(user)
+    follower_user.include?(user)
+  end
+  
 
   attachment :profile_image
 

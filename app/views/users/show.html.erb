@@ -42,8 +42,10 @@
 </td>
         <td><%= link_to book.title, book_path(book.id), class: 'book_id' %></td>
         <td><%= book.body %></td>
+        <td>コメント件数:<%= book.book_comments.count %></td>
       </tr>
 <% end %>
+
 <%= paginate @books %>
   </tbody>
 </table>
