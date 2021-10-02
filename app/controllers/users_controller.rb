@@ -4,12 +4,18 @@ class UsersController < ApplicationController
     @book = Book.new
     @user = User.find(params[:id])
     @books = @user.books.page(params[:page]).reverse_order
+
   end
 
   def index
     @book = Book.new
     @user = current_user
     @users = User.all
+  end
+  
+  def destroy
+    current_user.unfollow(params[:user_id])
+    redirect_to request.referer
   end
 
 
