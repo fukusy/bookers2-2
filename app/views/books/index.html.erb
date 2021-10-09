@@ -35,14 +35,17 @@
 <% end %>
 </td>
 
-        <td><%= link_to book.title, book_path(book.id), class: 'book_id' %></td>
+        <td><%= link_to book.title, book_path(book.id), class: 'book_id' %>
+</td>
         <td><%= book.body %></td>
+
         <!--非同期いいねボタンレンダー-->
         <td id="favorites_buttons_<%= book.id %>">
            <%= render "favorites/favorite", book: book %>
         </td>
-         
+
             <td>コメント件数:<%= book.book_comments.count %></td>
+
       </tr>
 <% end %>
   </tbody>
