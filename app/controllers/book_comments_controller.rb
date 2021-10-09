@@ -10,11 +10,14 @@ class BookCommentsController < ApplicationController
   end
 
   def destroy
+  #   @book = Book.find(params[:book_id])
+  # 	@book_comment = @book.book_comments.find(params[:id])
+ 	# 	@book_comment.destroy
+    
     @book = Book.find(params[:book_id])
-    @book_comment = BookComment.find(params[:book_id])
+    # @book_comment = BookComment.find(params[:book_id])
+    # @bookの内容を勝手に補完してくれている
     BookComment.find_by(id: params[:id]).destroy
-
-
   end
 
   private

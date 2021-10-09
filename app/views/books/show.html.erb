@@ -35,7 +35,7 @@
            <%= render "favorites/favorite", book: @book %>
         </td>
 
-        <td>コメント件数:<%= @book.book_comments.count %></td>
+        <td id="comment_count">コメント件数:<%= @book.book_comments.count %></td>
 
         <!--この本を登録したユーザーとログインしているユーザーが一緒なら、EditとDestroyを表示-->
         <% if @book_user.id == current_user.id %>
